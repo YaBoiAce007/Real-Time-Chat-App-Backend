@@ -1,6 +1,6 @@
 package com.real_time_chat_app.real_time_chat_app.Security;
 
-import com.real_time_chat_app.real_time_chat_app.Entities.Users;
+import com.real_time_chat_app.real_time_chat_app.Entities.ChatUser;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,9 +11,9 @@ import java.util.Collections;
 
 public class UserPrincipal implements UserDetails {
 
-    private Users user;
+    private ChatUser user;
 
-    public UserPrincipal(Users user) {
+    public UserPrincipal(ChatUser user) {
         this.user = user;
     }
 

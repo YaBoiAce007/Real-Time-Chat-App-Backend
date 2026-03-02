@@ -41,7 +41,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(request->request
-                        .requestMatchers("/real-time-chat-app/register", "/real-time-chat-app/login", "/real-time-chat-app/validate").permitAll()
+                        .requestMatchers("/real-time-chat-app/register", "/real-time-chat-app/login", "/real-time-chat-app/validate", "/real-time-chat-app/ws-connect/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
