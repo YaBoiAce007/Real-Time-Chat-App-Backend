@@ -3,7 +3,7 @@ package com.real_time_chat_app.real_time_chat_app.Entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "ChatUsers")
 public class ChatUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,11 +1,22 @@
 package com.real_time_chat_app.real_time_chat_app.Entities;
 
+import jakarta.persistence.*;
+
+import java.time.Instant;
+
+@Entity
+@Table(
+        name="ChatMessages",
+        indexes = @Index(columnList = "roomId, timestamp DESC")
+)
 public class ChatMessage {
     private String text;
     private String sender;       // username extracted from JWT
     private String roomId;       // which room this belongs to
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String messageId;    // UUID for React key prop + deduplication
-    private String timestamp;    // ISO string, set server-side
+    private Instant timestamp;    // ISO string, set server-side
 
     public String getText() {
         return text;
@@ -39,11 +50,11 @@ public class ChatMessage {
         this.messageId = messageId;
     }
 
-    public String getTimestamp() {
+    public Instant getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Instant timestamp) {
         this.timestamp = timestamp;
     }
 }
